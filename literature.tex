@@ -1,0 +1,185 @@
+\chapter{Literature Review}
+\label{ch:lit}
+\graphicspath{{image_directory/literature/}}
+
+	The following review both introduces and discusses the existing numerical approach classification, with example methods belonging to these classifications. The original Greenshields traffic flow stream model is discussed along with other more recent models and variations. We review, previous studies into numerical methods applied to network traffic flow problems, existing TFM software, and more general compressible and hyperbolic fluid dynamics numerical methods. 
+
+\section{Numerical Approach Classification}
+
+	There are many approaches and families of models that have been developed to simulate and predict traffic flow phenomena. Wageningen-Kessels et al. \cite{Kessels15} explore the development and classification of traffic flow modelling, their many features and present a useful model tree. 
+	
+\subsection{Fundamental Diagram}
+
+	The traffic flow fundamental diagram shows the relationships between flow rate, density and velocity. This set of three phase-diagrams can indicate conditions of free, bounded, and congested traffic behaviours. A fundamental diagram can also indicate critical values such as the maximum free flow speed, maximum density, maximum flow rate, critical velocity and critical density\footnote{Critical velocity and density are such that $u_{crit}=u(\rho_{crit})=\max_{u}\left\{u(\rho)\right\}$}. Greenshields \cite{Greenshields35},\cite{Kuhne11} was the first to investigate traffic flow theory and is hence often called the \emph{founder of}.
+
+\subsection{Macroscopic}
+
+	Macroscopic models describe the flow of traffic as a continuum, such as the continuum model for physical fluid flow. Just as the continuum approximation applies to dynamic fluid particles, the movement of cars along road networks can be characterised with continuous approximate variables for density $\rho(x,t)$, velocity $u(x,t)$, and flow $f(x,t)$, all as functions of time and space. The fundamental relationship of these variables is $f(x,t)=\rho(x,t)\cdot u(x,t)$, which can be easily dimensionally verified. The first macroscopic model was introduced by Lighthill and Williams \cite{Lighthill55}, and Richards \cite{Richards56} independently in 1955 and 1956 respectively. 
+
+\subsection{Microscopic}
+
+	Microscopic models simulate single-vehicle dynamics with sets of variables for position, velocity and acceleration, resulting in continuous systems of differential equations. The most recent development in microscopic TFM are cellular automaton models, where integers describe dynamical variables and road segments are split into cells which are either occupied or not on a binary measure. Cellular automaton models are numerically simple and efficient, hence can simulate large networks quickly, however they lack spatial accuracy over continuous models. 
+
+\subsection{Mesoscopic}
+
+	Mesoscopic models bridge the gap between micro and macro models with a hybrid approach to describing traffic dynamics. Vehicle behaviour is given on aggregate by probability distributions, and behavioural rules are prescribed to each individual vehicle. The popular mesoscopic approach is to use gas kinetic PDEs to describe the dynamics of probability distributions for traffic flow variables. Newell \cite{Newell95} criticises gas kinetic models by the inability to model non-free-flow traffic conditions. In comparison to macroscopic models, mesoscopic GK models use lots of unknown parameters taken from empirical observations. Large numbers of independent model variables give rise to increasingly complex numerical scheme implementation. 
+
+\section{Numerical Methods}
+\subsection{LWR}
+
+	Lighthill, Whitham \cite{Lighthill55} and Richards \cite{Richards56} described the first macroscopic model by a conservation law as used in fluid dynamics, also known as the kinematic wave equation. This simple model is derived from the conservation of vehicle numbers on an infinitesimal road segment, hence traffic flow is governed by a first order hyperbolic PDE and the traffic is analogous to an inviscid compressible fluid. As well as the fundamental variable relationship, the LWR model consists of a PDE and a velocity-density relationship. The hyperbolic conservation law which governs the traffic density variation is
+	\begin{equation}
+		\frac{\partial}{\partial t}\rho(t,x)+\frac{\partial}{\partial x}f(t,x)=0,
+		\label{eq:LWR}
+	\end{equation}
+	and the final piece of the LWR method is a relationship of traffic velocity in density space. This is also called a stream model where $u=u(\rho)$, see Section \ref{sec:streammodels} for a review of some common stream models. Using the fundamental relationship, $f=\rho u$ and stream model, the spatial derivative can be written as $\partial f/\partial x=(u+\rho u')\partial\rho/\partial x$ by the chain rule. The quantity $(u+\rho u')$ is the rate at which information propagates along waves that occur.
+
+\subsection{Nagel-Schreckenberg}
+\label{sec:nagschreck}
+
+	Nagel and Schreckenberg present a discrete boolean cellular automaton model \cite{Nagel92} which tracks each vehicle's individual dynamics explicitly and is hence within the microscopic TFM family. The model is defined by four simple steps that act on a array which splits a road segment into cell sites of occupied or empty cells. each vehicle has its own velocity and location, described by integer quantities. The four steps form a single iteration which acts in parallel on all vehicles of the system, 
+	\begin{enumerate}
+		\item \emph{Acceleration}: \emph{if} the velocity $u$ of a vehicle is less than the speed limit $u_{\max}$ \emph{and} the distance to the next car ahead is larger than $u+1$ \emph{then} increase the speed by one ($u\leftarrow u+1$)
+		\item \emph{Deceleration}: \emph{if} if a vehicle at cell site $i$ sees the next vehicle ahead at site $i+j$ \emph{then} it reduces its speed to $j-1$ ($u\leftarrow j-1$)
+		\item \emph{Randomisation}: with probability $p$, the velocity of each vehicle (with $u>0$) is decreased by one ($u\leftarrow u-1$)
+		\item \emph{Vehicle motion}: each vehicle advances by $u$ cell sites
+	\end{enumerate}
+	This algorithm captures general properties of single lane traffic flow, Nagel and Schreckenberg were able to show non-trivial realistic flow phenomena with these steps alone. The key to realistic flow simulation is held in the random choice of step 3, without this the dynamics are completely deterministic. The parameters for this model are calibrated with reasonable rough arguments and traffic measurements. The original paper shows the computational advantages of this model, and the realisation of important flow aspects such as the transition of laminar flow to stop-start traffic. See Appendix \ref{ap:nagsch} for some simple results of this algorithm, and the simulation code in Appendix \ref{code:NaSc}.
+
+\subsection{Payne High Order}
+\label{sec:payneHO}
+
+	Payne's macroscopic approach \cite{Payne71} is an extension of the LWR model, a second order method in which Payne uses an extra PDE to govern the average speed variable. Hence there is no need for a stream model, as the velocity is described by
+	\begin{equation}
+		\frac{\partial u}{\partial t}+\underbrace{u\frac{\partial u}{\partial x}}_{convection}=\underbrace{\frac{U^e(\rho)-u}{T}}_{relaxation}-\underbrace{\frac{c_0^2}{\rho}\frac{\partial\rho}{\partial x}}_{anticipation},
+	\end{equation}
+	where $U^e$ is the average equilibrium speed, $c_0$ is the anticipation constant, and $T$ is the relaxation constant. Payne found that, from observations, average speed is dependent on the state of neighbouring road sections as well as the local density. The three major influences of average speed dynamics are convection, relaxation and anticipation. The convection term is proportional to the average velocity change in space due to a \emph{gradual} acceleration/deceleration, and to the local average speed. Relaxation describes the tending to an equilibrium speed for all drivers. The anticipation term explains how drivers will anticipate a traffic jam they can see ahead and slow down prior to this. This model is discussed in detail in a review of macroscopic models from Bellemans, De Schutter and De Moor \cite{Bellemans02}, where the previously given terms are discussed in more detail.
+
+\subsection{Cell Transmission Model}
+
+	Daganzo proposed a numerical method to solve the LWR kinematic wave equation, where a road is partitioned into homogeneous cells of length equal to the distance travelled by a typical vehicle in one time step. This model assumes vehicles advance to the next cell with each time step, and tracks the transmission of cars through these cells with $n_i(t)$, the number of cars in cell $i$ at time $t$. Daganzo formulates the CTM model \cite{Daganzo94} by the flow of cars as follows,
+	\begin{equation}
+		n_i(t+1)=n_i(t)+\underbrace{y_i(t)}_{cars\,in}-\underbrace{y_{i+1}(t)}_{cars\,out}\label{eq:CTM}
+	\end{equation}
+	where the respective flows, $y_i(t)$ of cars \emph{into} cell $i$ at time $t$, are calculated from
+	\begin{equation}
+		y_i(t)=\min\left\{n_{i-1}(t),Q_i(t),N_i(t)-n_i(t)\right\}. \label{eq:cellflows}
+	\end{equation} 
+	In this formulation, $Q_i(t)$ is the maximum flow capacity into cell $i$ at time $t$, and $N_i(t)$ the maximum occupying capacity of cell $i$ at time $t$. Each term in the minimum statement of Equation \ref{eq:cellflows} ensures that the cell transmission flow $y_i(t)$ is realistic and bounded. The flow cannot be larger than the upstream neighbouring cell population $n_{i-1}(t)$, or larger than the flow capacity $Q_i(t)$, nor can the flow be such to overfill the remaining `empty space' $N_i(t)-n_i(t)$ in cell $i$. Daganzo further shows that this formulation is consistent with the LWR hydrodynamic model; highway characteristics are independent of space and time due to the assumed homogeneity, and the LWR conservation equation reduces to Equation \ref{eq:CTM}. The model form offers four degrees of freedom, free flow speed, maximum flow and density, and the wave speed. As stated by Newell \cite{Newell95}, these are the most important parameters for a realistic flow model. \\ \\ 
+	The most recent development of this model is the multi lane CTM from Laval and Daganzo \cite{Laval06}. In this development, each lane satisfies the LWR kinetic wave equation with a lane changing rate source term. The lane changing action is treated as discrete particles which create temporary lane blockages with a finite acceleration, this improves on existing lane changing models that have unrealistic instantaneous accelerating lane changes.
+
+\subsection{More Macroscopic Models}
+
+	There are many models for each approach to TFM, Wageningen-Kessels et al. \cite{Kessels15} (See Appendix \ref{fig:supp:tree}) show the relationships between each developed model. The following are some more recently developed macroscopic models, which are derived and built on earlier research approaches.
+
+\subsubsection*{Multi Class LWR}
+
+	Hoogendoorn and Bovy \cite{HoogendoornBovy99} developed a multi class model by applying the gas-kinetic approach to derive continuum macroscopic traffic models. They describe different vehicle classes, each with different desired speed behaviours within in the same density. Each class is represented by their own variables for flow, density and speed, and each follow the LWR model and fundamental flow relationship with their own stream model. Systems of relations are solved with the LWR framework over each class set of variables. 
+
+\subsubsection*{Anisotropic High Order}
+
+	Payne's high order \cite{Payne71} (See Section \ref{sec:payneHO}) is developed by Aw and Rascle \cite{AwRascle00}. By using a convective derivative, previous non-physical effects of the Payne model are resolved. This model is shown to perform well in predicting instabilities in very light traffic.
+	
+\subsubsection*{Hybrid High Order CF}
+
+	Moutari and Rascle \cite{MoutariRascle07} develop the Aw and Rascle \cite{AwRascle00} model into a Lagrangian description which simultaneously solves the microscopic and macroscopic discretisations. The hybrid aspect uses the Aw-Rascle and car following approaches, which allows traffic dynamics to be captured over a large network, still resolving small details in sensitive regions. This model achieves TVD with respect to the space and time for the velocity.
+
+\section{Stream Models}
+\label{sec:streammodels}
+
+	Under free flow conditions, the three traffic variables are pairwise related and explicitly given by the following models in this section. Reviews from \cite{ArdekaniGhandehariNepal11}, \cite{TiwariMarsani14}, \cite{LuMeng13}, \cite{Tom14} outline each of the following models while commenting on the goodness of fit to empirical traffic data. Each model has advantages and disadvantages over another, for better explaining traffic flow phenomena. The explicit formulations the velocity under each model are given in Table \ref{tab:streammodels}. Other approaches are multi-regime models where a set of models provide a piecewise description of the traffic flow variables at different ranges of densities, field observations show human behaviour varies for flow at different densities \cite{Tom14}.
+
+	\begin{table}
+		\renewcommand{\arraystretch}{1.8}
+		\centering
+		\caption[Stream model expressions]{Named traffic stream model equations where $u_f$ is the free $(\rho=0)$ speed, $\rho_m$ the maximum \emph{jam} density, $u_c$ the capacity velocity, $\overline\rho_{\min}$ the non-zero average minimum density, and $b,c$ general parameters.}
+		\label{tab:streammodels}
+		\begin{tabular}{|c c|} 
+			\hline
+			Name & Expression for $u\left(\rho\right)$ \\
+			\hline
+			Greenshield & $u_f\left(1-\frac{\rho}{\rho_m}\right)$ \\
+			Greenberg & $u_c\ln\left(\frac{\rho_m}{\rho}\right)$ \\
+			Modified Greenberg & $u_c\ln\left(\frac{\rho_m+\overline\rho_{\min}}{\rho+\overline\rho_{\min}}\right)$ \\
+			Underwood & $u_f\exp\left(\frac{-\rho}{\rho_c}\right)$ \\
+			Bell-Shaped & $u_f\exp\left(\frac{1}{2}\left(\frac{\rho}{\rho_c}\right)^2\right)$ \\
+			Pipes-Munjal & $u_f\left(1-\left(\frac{\rho}{\rho_m}\right)^n\right)$ \\
+			Polynomial & $u_f+b\rho+c\rho^2$ \\
+			Quadratic & $u_f\left(1-\frac{\rho^2}{\rho^2_m}\right)$ \\
+			\hline
+		\end{tabular}
+		\renewcommand{\arraystretch}{1}
+	\end{table}
+
+\subsection*{Greenshields}
+
+		After traffic observations in 1935, Greenshields proposed the linear velocity-density relationship, parabolic flow-density and flow-speed relationships \cite{Greenshields35}. The simple model satisfies the conditions of stationary traffic at jam density, and maximum speed at zero density. Due to its simplicity this model rarely fits real data well, the performance at density boundaries does not fit well in the above research reviews. 
+
+\subsection*{Greenberg}
+
+		Using a fluid flow analogy and data from Lincoln Tunnel, New York, Greenberg proposed this logarithmic relation. In his 1959 paper \cite{Greenberg59}, Greenberg provides an analytical derivation from fluid dynamics equations with traffic flow notation to a simple PDE solution. Not suitable for low concentration flow $(u\rightarrow\infty)$, however this model fits empirical data well for high density congested conditions. To address the low-density flaw of the original model, Ardekani and Ghandehari \cite{Ardekani08} introduced the non-zero average minimum density, $\overline\rho_{\min}$, which means the speed at low density is $u_c\ln\left((\rho_m+\overline\rho_{\min})/\overline\rho_{\min}\right)$ not $\infty$ as in the classical Greenberg model.
+
+\subsection*{Underwood}
+
+		Underwood proposed an exponential model \cite{Underwood61}, to improve on the Greenshields model which is shown to be true in the above reviews. As an exponential model, the high-density boundary condition is not met, however still performs well when compared to empirical data. 
+
+\subsection*{Bell-Shaped (Drake)}
+
+		Being unimpressed after studying various available traffic models, Drake \cite{Drake67} formulated his own model by transforming an estimated speed-density relation to a speed-flow function. This model is generally a better fit than the Underwood, Greenberg and Greenshields models, however the Underwood is better for congested conditions.
+
+\subsection*{Pipes-Munjal}
+
+		An alternate approach, Pipes proposed the family of models with parameter $n$ \cite{Pipes67}, for $n=1$ this is equivalent to the Greenshields model. 
+
+\subsection*{Polynomial, Quadratic and Taylor Expansions}
+
+	Polynomial models are in a general form defined by two parameters $b$ and $c$, for $b=0$ and $c=-1/\rho_m^2$ this gives the quadratic form of the model. These models are found to give realistic results for free flow and congested conditions. By truncating a Taylor expansion of any exponential stream model, the jam density can be found by solving polynomials in $\rho$ for $u=0$. 
+		
+\section{Previous Numerical Studies}
+
+	Of the recent research into numerical traffic flow simulations, the following apply a fluid dynamics continuum approach. Research into the interaction of this conservative  model approach to TFM with road networks as a graph with edges (roads) and nodes (junctions) is presented by Bretti, Natalini and Piccoli \cite{Bretti07}, and Shi and Guo \cite{ShiGuo16}. Both studies use a similar approach to the definition of road networks, the general junction has a traffic distribution matrix which defines probabilities of flow leaving outgoing roads. Several test cases are selected from Bretti, Natalini and Piccoli's earlier study \cite{Bretti06}. Shi-Guo \cite{ShiGuo16} use a third order stability preserving Runge-Kutta time discretisation, obtaining results which satisfy the maximum principle and preserve the 5$^{th}$ order WENO accuracy.
+	\\ \\
+	Similar research from \cite{Lakhanpal14}, and \cite{Setiawan16} using the LWR \cite{Lighthill55},\cite{Richards56} model investigate numerical methods abilities to predict shock structures along a single road segment, with applied results for traffic features such as traffic stop/go lights. Lakhanpal recommends a finite element approach, over Godunov, for linear advection and traffic light problems. While FEM introduces oscillations in the presence of shocks, added time relaxation suppresses these \cite{Lakhanpal14}. Setiawan, Tarwidi and Umbara successfully implement a finite volume method \cite{Setiawan16}, and are able to control traffic movement by adjusting traffic light timings. 
+
+\section{Software Review}
+
+	The following comments are a collection from three reviews of traffic flow simulation systems, refer to the reviews for a more in depth analysis of each system and more not mentioned here. Maciejewski \cite{Maciejewski10} compares three specifically microscopic systems on urban roads, results from real road network simulations with TRANSIMS, SUMO and VISSIM systems are discussed. Pell, Meingast and Schauer \cite{Pell17} present the results of an online survey of managers and developers, and gives comments on 17 different TFM software tools from various interviews, for example with traffic planners and PhD candidates. Pell et al., state that no tools are complete with all functionalities, and no system focuses on a single traffic application. Saidallah, El Fergougui and Elalaoui \cite{Saidallah16} analyse 11 tools each compared over 19 characteristics, assessing the use in planned changes for road networks.
+
+
+\subsection*{SUMO}
+
+	Developed by German Aerospace Centre DLR, SUMO (Simulation for Urban MObility) is a free, microscopic system with many available models for example safe distance car following, and lane changing. The space continuous, time discrete system is capable of modelling up to four vehicle types, intersections with or without traffic lights, large networks of over 10,000 links, collisions and accidents, dynamic vehicle routing, public transport and even pedestrians. Extra add ons are available including a 2D graphical visualisation of simulation results and APIs to remotely control simulations.
+	
+\subsection*{TrAnSimS}
+
+	The TRansportation ANalysis and SIMulation System is another free, microscopic tool which boasts its ability to model regional scale transport systems, developed at Los Alamos National Laboratory USA. The system runs each iteration to equilibrium according to the Wardrop’s first principle \footnote{Wardrop's first principle: journey times on used travel routes are less than or equal to any journey time for unused travel routes.}. The whole system is a conglomeration of many modules, including a classical traffic microsimulator based on cellular automata theory and the Nagel-Schreckenberg model which governs car following and lane changing. This system has been successfully tested with data from roads in Dallas, Texas and Portland (Oregon). 
+
+	
+\subsection*{PTV Vissim}
+
+	VISSIM\footnote{VISSIM stands for Verkehr In Stadten - SIMulationsmodell, which is German for `Traffic in cities - simulation model'} is a commercial software that is delivered as a custom tool from PTV depending on their customer requirements. VISSIM models difficult junctions well such as roundabouts which pose difficulties for the classical node-connector definition of a road network. The car following model takes psycho-physical driver behaviour into consideration. As a paid commercial software one can expect impressive features, VISSIM simulates city-like processes with multiclass road vehicles, trams and pedestrians with huge impressive 2D and 3D graphics capabilities in high detail. Customers are also able to implement extra user defined functionality though a C++ interface. Multi modal software is multi transport type (road vehicle, pedestrian, public transport), multi class software allows a sub-mode type (vehicle-cars, vehicle-motorbike, pedestrian-old person, pedestrian-child, public transport-tram, public transport-bus), VISSIM is both multi modal \emph{and} multi class.
+	
+\subsection*{Other Reviewed Systems}
+
+	MATSim is used for very large simulations, tested on roads in Zurich, Berlin, Padang and Toronto. Traffic routes are determined by an activity based agent demand generation, rather than typical origin-destination matrices for dynamic assignment. 
+	\\ \\
+	MiTSimLab analyses the impact of alternate traffic management systems, public transport operations and intelligent transport systems. Widely popular as an open source C++ program, this has been widely and successfully applied in USA, UK, Sweden, Italy, Switzerland, Japan, Korea, Malaysia and Portugal.
+	\\ \\
+	Aimsun is able to reproduce real traffic conditions, testing and developing traffic control systems, toll locations and public transport networks. This tool also allows multi network simulation for efficient road network testing. 
+	\\ \\
+	CorSim is a simulation software mainly used for signal systems, road networks and highway networks. NETSIM and FRESIM represent the environment of traffic on city networks and freeway roads respectively.
+	\\ \\
+	The microscopic ParaMicS tool can be scaled for use on single intersections or full city traffic simulations with 2D and 3D visualisation. Able to simulate buses, trams and pedestrians, traffic moves by an origin-destination matrix along a network defined by nodes and connectors on a graph. This has previously used to simulate vehicle movement and predict future traffic implications of proposed infrastructure features. 
+	
+\newpage
+\section{Compressible Fluid Dynamics Review}
+
+	CFD textbooks tend to focus on a few areas or a particular application, the following are useful for understanding certain topics. Variable changes through different types of waves are consistently explained in \cite{Anderson04}, \cite{Laney98}, \cite{Oosthuizen97} and \cite{Thompson72}. The use of CFD in industry is the focus of \cite{Jayanti18}, with considerable detail of Godunov upwinding. A gas dynamics text from Laney \cite{Laney98} discusses Riemann problems and the approximation of fluxes due to the expensive computation of analytical Riemann problem solutions.
+	\\ \\
+	Toro's book \cite{Toro09} formulates the hyperbolic-conservative Euler equations and introduces the requirements of a Riemann problem, and its solution for the accurate flow solution over finite difference cell interfaces. Hyperbolic systems are discussed as difficulties in numerical discretisation are imposed by hyperbolic terms in a PDE. Toro presents Godunov’s approach to the solution of conservation laws, along with the HLL Riemann solver and the developed variant HLLC also developed by Toro et al. \cite{Toro92}. The attempt of an encyclopaedic cover of CFD is made by Chung \cite{Chung02}, where Godunov's approach is given and the finite difference approach is scrutinised. Chung discusses the disadvantages of simple solver methods, leading to the necessity of higher resolution schemes along with some properties.
+	\\ \\
+	Godunov \cite{Godunov59} describes the pitfalls of the method of characteristics for numerical fluid simulations, especially for compressible dynamics, and outlines his new method which is described in Section \ref{sec:Godunov}. Lax presents a flux calculation \cite{Lax54} with the use of conservative form of hydrodynamic equations and a novel differencing method. Rusanov \cite{Rusanov61} developed a method to improve on Godunov's ideas, a finite difference \emph{through} method which shock capturing ignores discontinuity locations within calculations. To improve on Lax-Wendroff type methods, van Leer \cite{vanLeer79} developed MUSCL schemes to remove oscillatory solutions with nonlinear instabilities. In a numerical review from Woodward and Colella \cite{Woodward84}, MUSCL is shown to out perform Godunov methods. A review of Godunov's methods by Quirk \cite{Quirk94}, explains how Godunov's flaws have gone un-noticed as some errors occur in very high-resolution simulations. Quirk concludes that hybrid Riemann solvers are a better method than artificial dissipation which introduces inaccuracy into a solution. Methods for capturing shock discontinuities developed by proposing shock structures and deriving equations to support, such as the expansion-shock and expansion-contact-shock form of the HLL and HLLC approximate Riemann solvers respectively. Toro developed the HLLC solver from HLL \cite{Toro92}, and when HLLC is used with a Godunov-type method, the HLLC outperforms the HLL and (in the Mach reflection case) is virtually identical to the exact Riemann solution. Most approximate Riemann solvers make use of the wave signal velocity bounds, many wave speed estimates are proposed and investigated by Davis \cite{Davis88}. To improve the accuracy of a scheme without introducing dissipative errors, high order schemes are developed. Liu et. al \cite{Liu94} proposed the WENO scheme as a development from the ENO reconstruction method, Liu's results show the new scheme converges to \emph{analytical}\footnote{Analytical solutions are assumed from Lax-Friedrichs simulations on a very fine grid.} solutions. New developments of high resolution schemes include Suresh and Huynh's 5$^{\mathrm{th}}$-Order-Monotonicity-Preserving method \cite{Suresh97}, which is shown in results to resolve discontinuities at high resolution while also being accurate for smooth regions.
+	\\ \\
+	To retain a scheme's monotonicity yet eliminate the need for artificial dissipation, flux gradient limiters are used. Barth and Jespersen introduced a gradient limiter for unstructured grids \cite{Barth89}, aiming to obtain higher order accuracy by ensuring no new extrema are created during reconstruction. Venkatakrishnan developed Barth and Jespersen's limiter with a continuous approximation function \cite{Venkatakrishnan93}. The Venkatakrishnan limiter reduces to first order accuracy at local extrema. A downfall of second order schemes with gradient limiters are the reduction in order due to the smoothing properties of slope limiters. 
+	\\ \\
+	The field of methods for compressible dynamics spreads over many areas of fluid dynamics and numerical solutions of PDEs.  Cockburn and Shu \cite{Cockburn01} review Runge-Kutta finite element methods which incorporate compressible and high-resolution-finite-difference methods such as fluxes and slope limiters. A method using discontinuous Galerkin spatial discretisation, Runge-Kutta time stepping, and a slope limiter, is described and found that using higher order reconstruction polynomials increases the resolution of captured discontinuities and increases efficiency in smooth regions. 

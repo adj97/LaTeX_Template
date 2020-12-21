@@ -1,0 +1,209 @@
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
+
+
+
+%% FIRST COVER PAGE
+\thispagestyle{empty}
+
+\begin{center}
+
+\includegraphics[trim=0 0 0 0,clip,width=0.4\textwidth]{cranfield.jpg}
+
+\vfill
+
+\LARGE \textsc{Cranfield University}
+
+\vfill
+
+\LARGE \textsc{A. Dixon}
+
+\vfill
+
+\Huge\textsc{Development of a Python Traffic Flow Modelling Tool}\\
+\vspace{0.5cm}
+\large\textsc{\emph{Applying existing numerical methodologies, suited to hyperbolic PDEs, to traffic flow problems on networks}}
+
+\vfill
+
+\large\textsc{School of Aerospace, Transport and Manufacturing}\\
+\large\textsc{Computational Fluid Dynamics}
+
+\vfill
+
+\large\textsc{MSc}\\
+\large\textsc{Academic Year: 2018-2019}\\
+
+\vfill
+
+\large\textsc{Supervisor: Dr P. Tsoutsanis}\\
+\large\textsc{\monthyeardate\today}
+
+\end{center} \normalsize
+
+\pagebreak
+
+\thispagestyle{empty}
+
+\mbox
+
+\pagebreak
+
+
+
+
+% SECOND COVER PAGE
+\thispagestyle{empty}
+
+\begin{center}
+
+\vfill
+
+\LARGE \textsc{Cranfield University}
+
+\vfill
+
+\large\textsc{School of Aerospace, Transport and Manufacturing}\\
+\large\textsc{Computational Fluid Dynamics}
+
+\vfill
+
+\large\textsc{MSc}
+
+\vfill
+
+\large\textsc{Academic Year: 2018-2019}
+
+\vfill
+
+\LARGE\textsc{A. Dixon}
+
+\vfill
+
+\LARGE\textsc{Development of a Python Traffic Flow Modelling Tool}\\
+\vspace{0.5cm}
+\large\textsc{\emph{Applying existing numerical methodologies, suited to hyperbolic PDEs, to traffic flow problems on networks}}
+
+\vfill
+
+\large\textsc{Supervisor: Dr P. Tsoutsanis}\\
+\large\textsc{\monthyeardate\today}
+
+\normalsize
+\vfill
+
+This thesis is submitted in partial fulfilment of the requirements for the degree of Computational Fluid Dynamics MSc.
+
+\vfill
+
+\textcopyright\ Cranfield University 2019. All rights reserved. No part of this publication may be reproduced without the written permission of the copyright owner.
+
+\end{center} 
+
+\pagebreak
+
+\thispagestyle{empty}
+
+\mbox
+
+\pagebreak
+
+\pagenumbering{roman}
+
+
+
+
+% ABSTRACT PAGE
+\mbox{} \vspace{25mm}
+
+\begin{centering}
+\begin{minipage}[c]{0.9\textwidth}
+\centering
+\Huge \textbf{Abstract} \normalsize
+\addcontentsline{toc}{chapter}{Abstract}
+
+\vspace{15mm}
+\justify
+
+Traffic flow is a complicated system, and hence is difficult to describe mathematically. Understanding traffic dynamics has important applications in economy, the environment, infrastructure and technology.
+This work aims to investigate the influence of hyperbolic computational fluid dynamics numerical methods on macroscopic traffic flow simulations. The development of a Python tool including such methods has allowed this to be tested.
+This tool is capable of executing various Riemann solvers, low and high resolution spatial reconstruction, a 4$^{th}$ order Runge-Kutta update, with a probabilistic traffic network model.
+Results show the numerical methods of choice are more significant for simulations with rapidly changing density in space and or time, high order WENO schemes require bounded limiting to preserve monotonicity, and the VanLeer MUSCL slope limiter is identified to give an optimal solution.
+
+\end{minipage} 
+\vfill
+\end{centering}
+
+\vfill
+
+
+
+
+
+% KEYWORDS
+\hspace{0cm}
+\begin{centering}
+\begin{minipage}[c]{0.9\textwidth}
+
+\large \textbf{Keywords} \normalsize
+
+\vspace{5mm}
+
+Traffic modelling, Macroscopic, Network, Hyperbolic numerical methods, Python developing, WENO, Riemann problem
+
+\end{minipage}
+\end{centering}
+
+\pagebreak
+
+\mbox
+\pagebreak
+\newpage
+
+
+
+
+% ACKNOWLEDGEMENTS PAGE
+
+\mbox{} \vspace{25mm}
+
+\begin{centering}
+\begin{minipage}[c]{0.9\textwidth}
+\centering
+\Huge \textbf{Acknowledgements} \normalsize
+
+\vspace{15mm}
+\justify
+
+I would like to thank the staff of Cranfield University, School of Aerospace, Transport and Manufacturing, Computational Fluid Dynamics teaching and administration team. 
+\\ \\
+I must thank my parents, Michael and Katie, friends and Cranfield peers, without whom this research and term of study would not have been possible.
+
+\end{minipage} 
+\vfill
+\end{centering}
+
+\vfill
+
+\pagebreak
+
+
+
+
+\pagebreak
+
+
+
+% INFO PAGE
+
+\mbox
+
+\vfill
+\noindent Andrew J. Dixon\\
+s290483\\
+\href{mailto:andrew.dixon@cranfield.ac.uk}{andrew.dixon@cranfield.ac.uk}\\
+\\
+Last edited, \today\ at \currenttime.
+
+\pagebreak
+\newpage

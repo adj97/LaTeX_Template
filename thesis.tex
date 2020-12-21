@@ -1,0 +1,238 @@
+\documentclass[a4paper,12pt,twoside]{report}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{fancyheadings}
+\usepackage{longtable}
+\usepackage{amsmath,bm}
+\usepackage{float}
+\usepackage{bookmark}
+\usepackage{subfiles}
+\usepackage{datetime}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{perpage} %the perpage package
+\usepackage[perpage]{footmisc}
+\usepackage{caption}
+\usepackage{ragged2e}
+\usepackage{algorithmic}
+\usepackage{gensymb}
+\usepackage{dsfont}
+\usepackage{natbib}
+
+\setlength{\bibsep}{7.3pt}
+
+
+\captionsetup{font=footnotesize, justification=centering}
+\DeclareCaptionFormat{cont}{#1 (cont.)#2#3\par}
+
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+    \pagestyle{fancyplain}
+    	\parskip=0.1cm
+    	\voffset=-0.54cm
+    	\hoffset=0.46cm
+    	\oddsidemargin=0pt
+    	\evensidemargin=0pt
+    	\topmargin=0pt
+    	\headheight=0.5cm
+    	\headsep=0.5cm
+    	\textheight=23.7cm 
+    	\textwidth=15cm
+    	\setlength{\headwidth}{15cm}
+    	\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    	\renewcommand{\bibname}{References}
+    	
+\newcommand{\createblankpage}{
+\newpage
+\mbox
+\pagebreak
+} 
+
+    
+\lstdefinestyle{f}{language=[90]Fortran,
+  keywordstyle=\color{blue},
+  commentstyle=\color{red},
+  basicstyle=\ttfamily\scriptsize,
+  stringstyle=\ttfamily\color{orange},
+  numberstyle=\ttfamily\scriptsize,
+  numbers=left,
+  stepnumber=1,
+  showstringspaces=false,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame = single
+}
+
+\lstdefinestyle{m}{language=Matlab,
+  basicstyle=\ttfamily\scriptsize,
+  stringstyle=\ttfamily,
+  numberstyle=\ttfamily\scriptsize,
+  numbers=left,
+  stepnumber=1,
+  showstringspaces=false,
+  stringstyle=\color{mylilas},
+  commentstyle=\color{mygreen},
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame = single,
+  morekeywords={matlab2tikz},
+  morekeywords=[2]{1}, keywordstyle=[2]{\color{black}}
+}
+
+\lstdefinestyle{p}{language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  stringstyle=\ttfamily,
+  numberstyle=\ttfamily\scriptsize,
+  numbers=left,
+  stepnumber=1,
+  showstringspaces=false,
+  stringstyle=\color{mylilas},
+  commentstyle=\color{mygreen},
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame = single,
+  morekeywords={matlab2tikz},
+  morekeywords=[2]{1}, keywordstyle=[2]{\color{black}}
+}
+
+\lstdefinestyle{txt}{language=[90]Fortran,
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  basicstyle=\ttfamily\scriptsize,
+  stringstyle=\ttfamily\color{black},
+  stepnumber=1,
+  showstringspaces=false,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame = single
+}
+
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+%\lhead[\fancyplain{}{}]{\fancyplain{\slshape \leftmark}{\slshape \leftmark}}
+%\rhead[\fancyplain{\slshape \leftmark}{\slshape \leftmark}]{\fancyplain{}{}}
+\lhead[\fancyplain{\thepage}{\thepage}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{}]{\fancyplain{\thepage}{\thepage}}
+\chead[\fancyplain{\emph{Andrew Dixon}}{\emph{Andrew Dixon}}]{\fancyplain{\slshape \nouppercase\leftmark}{\slshape \nouppercase\leftmark}}
+
+\lfoot[\fancyplain{\thepage}{\thepage}]{\fancyplain{}{}}
+\rfoot[\fancyplain{}{}]{\fancyplain{\thepage}{\thepage}}
+\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+
+\setlength{\headrulewidth}{0.2pt}
+\setlength{\plainheadrulewidth}{0.2pt}
+
+\bibliographystyle{plain}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%
+%%%%% Front Matter %%%%%
+%%%%%%%%%%%%%%%%%%
+
+
+
+	\include{frontmatter}
+	
+\addcontentsline{toc}{chapter}{Contents}
+\setstretch{1.05}
+	\tableofcontents
+\setstretch{1}
+\markboth{Contents}{}
+
+\createblankpage
+
+\addcontentsline{toc}{chapter}{List of Figures}
+\setstretch{1}
+	\listoffigures
+\setstretch{1}
+\markboth{List of Figures}{}
+
+%\createblankpage
+
+\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+\markboth{List of Tables}{}
+
+\createblankpage
+
+\clearpage
+\addcontentsline{toc}{chapter}{Abbreviations}
+\markboth{Abbreviations}{}
+	\include{abbreviations}
+
+\createblankpage
+
+\addcontentsline{toc}{chapter}{Nomenclature}
+\markboth{Nomenclature}{}
+	\include{nomenclature}
+
+\createblankpage
+
+\clearpage
+\newpage
+
+\pagenumbering{arabic}
+\pagestyle{fancyplain}
+
+%%%%%%%%%%%%%%%%%%%%
+%%%% Main Body Chapters %%%%
+%%%%%%%%%%%%%%%%%%%%
+
+\setstretch{1}
+%if needed \createblankpage
+	
+	\include{introduction}
+	
+	\include{literature}
+	
+	\createblankpage
+	
+	\include{approach}
+	
+	\createblankpage
+	
+	\include{development}
+	
+	\createblankpage
+	
+	\include{results}
+	
+	\include{conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%% End Matter %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\bibname{References}
+\addcontentsline{toc}{chapter}{References}
+\setstretch{1.18}
+	\bibliography{references}
+\setstretch{1}
+\markboth{References}{}
+
+\appendix
+
+	\include{app_codes}
+	
+	\include{app_reco}
+	
+	\include{app_supp}
+	
+\createblankpage
+\createblankpage
+% end on a blank even page
+
+\end{document}

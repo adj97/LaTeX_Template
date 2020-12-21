@@ -1,0 +1,49 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Approach : 1D finite difference discretisation}}{16}{figure.caption.18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Approach : Comparison of high resolution schemes}}{21}{figure.caption.19}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Development : PyCharm IDE}}{26}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Development : GitHub version control}}{26}{figure.caption.20}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Development : Simulation progress bar}}{28}{figure.caption.21}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Development : Network map diagram}}{29}{figure.caption.22}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Development : Simulation process flowchart}}{30}{figure.caption.23}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Single Road : 7th order WENO}}{34}{figure.caption.24}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Traffic Circles : Reconstruction methods}}{35}{figure.caption.25}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Traffic Circles : Riemann solvers}}{36}{figure.caption.26}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Traffic Circles : Spatial refinement}}{36}{figure.caption.27}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Traffic Circles : MUSCL limiters}}{37}{figure.caption.28}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Re Di Roma : Junction area map}}{38}{figure.caption.29}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Re Di Roma : Density line contour}}{39}{figure.caption.30}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Developing flow}}}{39}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Steady traffic distribution}}}{39}{subfigure.7.2}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Re Di Roma : Grid resolution}}{39}{figure.caption.31}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Re Di Roma : Reconstruction}}{40}{figure.caption.32}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Re Di Roma : Riemann solvers}}{40}{figure.caption.33}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Wakefield M1J40 : Junction area map}}{42}{figure.caption.34}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Wakefield M1J40 : Density line contour}}{42}{figure.caption.35}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Developing}}}{42}{subfigure.12.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Steady}}}{42}{subfigure.12.2}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Wakefield M1J40 : Density profile for varying $CFL$}}{43}{figure.caption.36}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Wakefield M1J40 : Density profile for varying reconstruction}}{43}{figure.caption.37}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Time Analysis : }}{45}{figure.caption.38}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Time Analysis : Traffic circle slope limiters}}{45}{figure.caption.39}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Time Analysis : Spatial resolution}}{45}{figure.caption.40}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Time Analysis : M1J40 CFL}}{47}{figure.caption.41}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Time Analysis : M1J40 reconstruction}}{47}{figure.caption.42}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Time Analysis : Re Di Roma Riemann solvers}}{48}{figure.caption.43}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Time Analysis : Total time breakdown}}{48}{figure.caption.44}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces MUSCL Reconstruction : Linear $2^{nd}$ order}}{95}{figure.caption.46}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces MUSCL Reconstruction : Parabolic $3^{rd}$ order}}{96}{figure.caption.47}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces MUSCL Reconstruction : Slope limiters}}{99}{figure.caption.49}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces WENO reconstruction stencil}}{102}{figure.caption.50}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Nagel-Schreckenberg simulation}}{106}{figure.caption.51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Physical location}}}{106}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Pathline clustering waves}}}{106}{subfigure.1.2}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Genealogical model tree}}{107}{figure.caption.52}

@@ -1,0 +1,460 @@
+\begin{thebibliography}{10}
+
+\bibitem{Anderson04}
+J.D. Anderson.
+\newblock {\em Modern Compressible Flow : With Historical Perspective}.
+\newblock McGraw-Hill : Boston, 3 edition, 2004.
+
+\bibitem{Ardekani08}
+S.~Ardekani and M.~Ghandehari.
+\newblock A modified greenberg speed-flow traffic model.
+\newblock {\em Technical Report, Department of Mathematics, The University of
+  Texas at Arlington, USA}, 357, 2008.
+
+\bibitem{ArdekaniGhandehariNepal11}
+S.~Ardekani, M.~Ghandehari, and S.~Nepal.
+\newblock Macroscopic speed-flow models for characterization of freeway and
+  managed lanes.
+\newblock {\em Institutul Politehnic din Iasi. Buletinul. Sectia Constructii.
+  Arhitectura}, 57(1):149--159, 2011.
+
+\bibitem{AwRascle00}
+A.~Aw and M.~Rascle.
+\newblock Resurrection of `second order' models of traffic flow.
+\newblock {\em SIAM Journal of Applied Mathematics}, 60(3):916--938, 2000.
+
+\bibitem{BalsaraShu00}
+D.S. Balsara and C.W. Shu.
+\newblock Monotonicity preserving weighted essentially non-oscillatory schemes
+  with increasingly high order of accuracy.
+\newblock {\em Journal of Computational Physics}, 160:405--452, 2000.
+
+\bibitem{Barth89}
+T.J. Barth and D.C. Jespersen.
+\newblock The design and application of upwind schemes on unstructured meshes.
+\newblock {\em AIAA}, pages 89--0366, 1989.
+
+\bibitem{Bellemans02}
+T.~Bellemans, B.~De~Schutter, and B.~De~Moor.
+\newblock Models for traffic control.
+\newblock {\em Journal A}, 43(3-4):13--22, 2002.
+
+\bibitem{Bretti06}
+G.~Bretti, R.~Natalini, and B.~Piccoli.
+\newblock Numerical approximations of a traffic flow model on networks.
+\newblock {\em American Institute of Mathematical Sciences}, 1(1):57--84, 2006.
+
+\bibitem{Bretti07}
+G.~Bretti, R.~Natalini, and B.~Piccoli.
+\newblock A fluid-dynamic traffic model on road networks.
+\newblock {\em Archives of Computational Methods in Engineering},
+  14(2):139--172, 2007.
+
+\bibitem{Osher83}
+S.R. Chakravarthy and S.~Osher.
+\newblock High resolution applications of the osher upwind scheme for the euler
+  equations.
+\newblock {\em Proceedings or AIAA 6th Computational Fluid Dynamics
+  conference}, 363-373:AIAA Paper 83--1943, 1983.
+
+\bibitem{Chung02}
+T.J. Chung.
+\newblock {\em Computational Fluid Dynamics}.
+\newblock Cambridge University Press, 2002.
+
+\bibitem{Cockburn01}
+B.~Cockburn and C.W. Shu.
+\newblock Runge-kutta discontinuous galerkin methods for convection-dominated
+  problems.
+\newblock {\em Journal of Scientific Computing}, 16(3):173--261, 2001.
+
+\bibitem{TQDM}
+C.O. Costa-Luis.
+\newblock tqdm: A fast, extensible progress meter for python and cli.
+\newblock {\em The Journal of Open Source Software}, 4(37):1277, 2019.
+
+\bibitem{Gcostese}
+G.~Costeseque.
+\newblock Traffic-flow-simulator, 11/09/2017.
+\newblock \url{https://github.com/gcostese/Traffic-flow-simulator} [Accessed
+  18-August-2019].
+
+\bibitem{Daganzo94}
+C.F. Daganzo.
+\newblock The cell transmission model: A dynamic representation of highway
+  traffic consistent with the hydrodynamic theory.
+\newblock {\em Transportation Research Part B: Methodological}, 28(4):269--287,
+  1994.
+
+\bibitem{Davis88}
+S.F. Davis.
+\newblock Simplified second order godunov-type methods.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing},
+  9:445--473, 1988.
+
+\bibitem{Dhingra11}
+S.L. Dhingra and G.~Ishtiyaq.
+\newblock Traffic flow theory historical research perspectives.
+\newblock {\em Greenshields 75th Symposium}, pages 45--62, 2011.
+
+\bibitem{AndrewDixonGitHub}
+A.~Dixon.
+\newblock Tfm$\_$thesis, 05/08/2019.
+\newblock \url{https://github.com/adj97/TFM_Thesis} [Accessed 19-August-2019].
+
+\bibitem{Drake67}
+J.S. Drake, J.L. Schofer, and May A.D.
+\newblock A statistical analysis of speed density hypotheses.
+\newblock {\em Highway Research Board, NRC, Washington D.C.}, 154, 1967.
+
+\bibitem{Gaskell88}
+P.H. Gaskell and A.K.C. Lau.
+\newblock Curvature-compensated convective transport: Smart, a new
+  boundedness-preserving transport algorithm.
+\newblock {\em International Journal of Numerical Methods of Fluids},
+  8(6):617--641, 1988.
+
+\bibitem{Godunov59}
+S.K. Godunov.
+\newblock A finite difference method for the computation of discontinuous
+  solutions of the equations of fluid dynamics.
+\newblock {\em Matematicheskii Sbornik}, 47:357--393, 1959, Translated by I.
+  Bohachevsky.
+
+\bibitem{Greenberg59}
+H.~Greenberg.
+\newblock An analysis of traffic flow.
+\newblock {\em Operations Research}, 7(1):79--85, 1959.
+
+\bibitem{Greenshields35}
+B.D. Greenshields.
+\newblock A study of traffic capacity.
+\newblock {\em Highway Research Board Proceedings}, 14:348--477, 1935.
+
+\bibitem{Griffgruff}
+G.W. Griffiths.
+\newblock Limiter plots, 10/2006.
+\newblock \url{https://en.wikipedia.org/wiki/File:LimiterPlots1.png} [Accessed
+  7-August-2019].
+
+\bibitem{HLL83}
+A.~Harten, P.D. Lax, and B.~van Leer.
+\newblock On upstream differencing and godunov-type schemes for hyperbolic
+  conservation laws.
+\newblock {\em SIAM Review}, 25(1):35--61, 1983.
+
+\bibitem{HoogendoornBovy99}
+S.P. Hoogendoorn and P.H.L. Bovy.
+\newblock Generic gas-kinetic traffic systems modelling with applications to
+  vehicular traffic flow.
+\newblock {\em Transport Research Part B}, 35(2001):317--336, 1999.
+
+\bibitem{Jayanti18}
+S.~Jayanti.
+\newblock {\em Computational Fluid Dynamics for Engineers and Scientists}.
+\newblock Springer : The Netherlands, 2018.
+
+\bibitem{PyCharm}
+JetBrains.
+\newblock Pycharm, 19/08/2019.
+\newblock \url{https://www.jetbrains.com/pycharm/} [Accessed 19-August-2019].
+
+\bibitem{Kermani03}
+M.J. Kermani, A.G. Gerber, and J.M. Stockie.
+\newblock Thermodynamically based moisture prediction using roe's scheme.
+\newblock {\em 4th Conference of Iranian AeroSpace Society}, Amir Kabir
+  University of Technology, Tehran, Iran, January 27–29.
+
+\bibitem{Koren93}
+B.~Koren.
+\newblock A robust upwind discretisation method for advection, diffusion and
+  source terms.
+\newblock {\em Vreugdenhil, (eds.), Numerical Methods for Advection–Diffusion
+  Problems}, page 117, 1993.
+
+\bibitem{Kuhne11}
+R.D. Kuhne.
+\newblock Greenshields' legacy : Highway traffic.
+\newblock {\em Greenshields 75th Symposium}, pages 3--10, 2011.
+
+\bibitem{Kutta1901}
+W.~Kutta.
+\newblock Beitrag zur naherungsweisen integration totaler
+  differentialgleichungen.
+\newblock {\em Mathematical Physics}, 46:435--453, 1901.
+
+\bibitem{Lakhanpal14}
+P.~Lakhanpal.
+\newblock Numerical simulations of traffic flow models.
+\newblock Master's thesis, Department of Mathematical Sciences, University of
+  Nevada, Las Vegas, USA, August 2014.
+
+\bibitem{Laney98}
+C.B. Laney.
+\newblock {\em Computational Gas Dynamics}.
+\newblock Cambridge University Press, 1998.
+
+\bibitem{Laval06}
+J.A. Laval and C.F. Daganzo.
+\newblock Lane-changing in traffic streams.
+\newblock {\em Transportation Research Part B: Methodological}, 40(3):251--264,
+  2006.
+
+\bibitem{Lax54}
+P.D. Lax.
+\newblock Weak solutions of nonlinear hyperbolic equations and their numerical
+  computation.
+\newblock {\em Communications on Pure and Applied Mathematics}, 7:159--193,
+  1954.
+
+\bibitem{Lien94}
+F.S. Lien and M.A. Leschziner.
+\newblock Upstream monotonic interpolation for scalar transport with
+  application to complex turbulent flows.
+\newblock {\em International Journal of Numerical Methods of Fluids},
+  19(6):527--548, 1994.
+
+\bibitem{Lighthill55}
+M.J. Lighthill and G.B. Whitham.
+\newblock On kinematic waves ii. a theory of traffic flow on long crowded
+  roads.
+\newblock {\em Proceedings of the Royal Society A}, 229(1178), 1955.
+
+\bibitem{Liu94}
+X.D. Liu, S.~Osher, and T.~Chan.
+\newblock Weighted essentially non-oscillatory schemes.
+\newblock {\em Journal of Computational Physics}, 115:200--212, 1994.
+
+\bibitem{LuMeng13}
+Z.~Lu and Q.~Meng.
+\newblock Analysis of traffic speed-density regression models - a case study of
+  two roadway traffic flows in china.
+\newblock {\em Proceedings of the Eastern Asia Society for Transportation
+  Studies}, 9, 2013.
+
+\bibitem{Maciejewski10}
+M.~Maciejewski.
+\newblock A comparison of microscopic traffic flow simulation systems for an
+  urban area.
+\newblock {\em Transport Problems (Poland)}, 5(4):27--38, 2010.
+
+\bibitem{Gooch08}
+K.~Michalak and C.~Ollivier-Gooch.
+\newblock Limiters for unstructured higher-order accurate solutions of the
+  euler equations.
+\newblock {\em AIAA Aerospace Sciences Meeting and Exhibit}, 46, 2008.
+
+\bibitem{MoutariRascle07}
+S.~Moutari and M.~Rascle.
+\newblock A hybrid lagrangian model based on the aw-rascle traffic flow model.
+\newblock {\em SIAM Journal of Applied Mathematics}, 68(2):413--436, 2007.
+
+\bibitem{Murman74}
+E.M. Murman.
+\newblock Analysis of embedded shock waves calculated by relaxation methods.
+\newblock {\em AIAA Journal}, 12:626--633, 1974.
+
+\bibitem{Nagel92}
+K.~Nagel and M.~Schreckenberg.
+\newblock A cellular automaton model for freeway traffic.
+\newblock {\em Journal de Physique I}, 2(12):2221--2229, 1992.
+
+\bibitem{Newell95}
+G.F. Newell.
+\newblock Theory of highway traffic flow: 1945 to 1965.
+\newblock {\em Institute of Transportation Studies, University of California,
+  Berkely}.
+
+\bibitem{Oosthuizen97}
+P.H. Oosthuizen.
+\newblock {\em Compressible Fluid Flow}.
+\newblock McGraw-Hill : New York, 1997.
+
+\bibitem{Payne71}
+H.J. Payne.
+\newblock Models of freeway traffic and control.
+\newblock {\em Mathematical Models of Publication Systems}, 1:51--61,
+  Simulation Council Proceedings, 1971.
+
+\bibitem{Pell17}
+A.~Pell, A.~Meingast, and O.~Schauer.
+\newblock Trends in real-time traffic simulation.
+\newblock {\em Transportation Research Procedia : World Conference on Transport
+  Research - Shanghai 10-15 July 2016}, 25:1477--1484, 2017.
+
+\bibitem{Pipes67}
+L.A. Pipes.
+\newblock Car-following models and the fundamental diagram of road traffic.
+\newblock {\em Transportation Research}, 1:21--29, 1967.
+
+\bibitem{Quirk94}
+J.J. Quirk.
+\newblock A contribution to the great riemann solver debate.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  18:555--574, 1994.
+
+\bibitem{Richards56}
+P.I. Richards.
+\newblock Shock waves on the highway.
+\newblock {\em Operations Research}, 4(1):42--51, 1956.
+
+\bibitem{Roe86}
+P.L. Roe.
+\newblock Characteristic-based schemes for the euler equations.
+\newblock {\em Annual Review of Fluid Mechanics}, 18:337--365, 1986.
+
+\bibitem{Runge1895}
+C.~Runge.
+\newblock Uber die numerishe auflosing von differentialgleichungen.
+\newblock {\em Mathematics Annual Review}, 46:167--178, 1895.
+
+\bibitem{Rusanov61}
+V.V. Rusanov.
+\newblock Calculation of interaction of non-steady shock waves with obstacles.
+\newblock {\em Journal of Computational Mathematical Physics}, 1:267--279,
+  1961.
+
+\bibitem{Saidallah16}
+M.~Saidallah, A.~El~Fergougui, and A.E. Elalaoui.
+\newblock A comparative study of urban road traffic simulators.
+\newblock {\em MATEC Web of Conferences ICTTE}, 81, 05002, 2016.
+
+\bibitem{Setiawan16}
+E.B. Setiawan, D.~Tarwidi, and R.F. Umbara.
+\newblock Numerical simulation of traffic flow via fluid dynamics approach.
+\newblock {\em International Journal of Computing and Optimization},
+  3(1):93--104, 2016.
+
+\bibitem{ShiGuo16}
+Y.~Shi and Y.~Guo.
+\newblock A maximum-principle-satisfying finite volume compact-weno scheme for
+  traffic flow model on networks.
+\newblock {\em Applied Numerical Mathematics}, 108:21--36, 2016.
+
+\bibitem{Shu97}
+C.W. Shu.
+\newblock Essentially non-oscillatory and weighted essentially non-oscillatory
+  schemes for hyperbolic conservation laws.
+\newblock {\em NASA Institute for Computer Applications in Science and
+  Engineering}, 97-65, 1997.
+\newblock Available on
+  \url{https://www3.nd.edu/~zxu2/acms60790S13/Shu-WENO-notes.pdf} [Accessed
+  6-August-2019].
+
+\bibitem{Suresh97}
+A.~Suresh and H.T. Huynh.
+\newblock Accurate monotonicity-preserving schemes with runge-kutta time
+  stepping.
+\newblock {\em Journal of Computational Physics}, 136:83--99, 1997.
+
+\bibitem{Sweby84}
+P.K. Sweby.
+\newblock High resolution schemes using flux-limiters for hyperbolic
+  conservation laws.
+\newblock {\em SIAM Journal of Numerical Analysis}, 21(5):995--1011, 1984.
+
+\bibitem{Thompson72}
+P.A. Thompson.
+\newblock {\em Compressible-Fluid Dynamics}.
+\newblock McGraw-Hill : New York, 1972.
+
+\bibitem{TiwariMarsani14}
+H.~Tiwari and A.~Marsani.
+\newblock Calibration of conventional macroscopic traffic flow models for
+  nepalese roads (a case study of jadibuti - suryabinayak section).
+\newblock {\em Department of Civil Engineering, Central Campus, Pulchowk, IOE,
+  TU, Nepal - Proceedings of IOE Graduate Conference}, pages 225--232, 2014.
+
+\bibitem{Tom14}
+V.M. Tom.
+\newblock Transportation systems engineering notes - traffic stream models.
+\newblock {\em Module Material}, February 19, 2014.
+
+\bibitem{Toro09}
+E.F. Toro.
+\newblock {\em Riemann Solvers and Numerical Methods for Fluid Dynamics : A
+  Practical Introduction}.
+\newblock Springer, 3 edition, 2009.
+
+\bibitem{Toro92}
+E.F. Toro, D.H. Peregrine, and G.~Watson.
+\newblock Numerical solution of the shallow water equations on a beach using
+  the weighted average flux method.
+\newblock {\em Computational Fluid Dynamics}, 1:495--502, 1992.
+
+\bibitem{Toro94}
+E.F. Toro, M.~Spruce, and W.~Speares.
+\newblock Restoration of the contact surface in the hll-riemann solver.
+\newblock {\em Shock Waves}, 4:25--34, 1994.
+
+\bibitem{TakisNotes}
+P.~Tsoutsanis.
+\newblock Numerical modelling for steady and unsteady compressible flows.
+\newblock {\em Module Material}, Cranfield University, February 2019.
+
+\bibitem{Tu18}
+J.~Tu, C.~Liu, and G.H. Yeoh.
+\newblock {\em Computational Fluid Dynamics : A Practical Approach}.
+\newblock Butterworth-Heinemann : San Diego, 3 edition, 2018.
+
+\bibitem{Underwood61}
+R.T. Underwood.
+\newblock Speed, volume, and density relationships, quality and theory of
+  traffic flow.
+\newblock {\em Yale Bureau of Highway Traffic, New Haven}, pages 141--188,
+  1961.
+
+\bibitem{VanAlbada82}
+G.D. Van~Albada, B.~Van~Leer, and W.W. Roberts.
+\newblock A comparative study of computational methods in cosmic gas dynamics.
+\newblock {\em Astronomy and Astrophysics}, 108:76--84, 1982.
+
+\bibitem{VanLeer74}
+B.~Van~Leer.
+\newblock Towards the ultimate conservative difference scheme ii.
+  upstream-centred finite-difference schemes for ideal compressible flow.
+\newblock {\em Journal of Computational Physics}, 14(4):361--370, 1974.
+
+\bibitem{VanLeer77}
+B.~Van~Leer.
+\newblock Towards the ultimate conservative difference scheme iii.
+  upstream-centred finite-difference schemes for ideal compressible flow.
+\newblock {\em Journal of Computational Physics}, 23(3):263--275, 1977.
+
+\bibitem{vanLeer79}
+B.~van Leer.
+\newblock Towards the ultimate conservative difference scheme v. a second order
+  sequel to godunov's method.
+\newblock {\em Journal of Computational Physics}, 32:101--136, 1979.
+
+\bibitem{Venkatakrishnan93}
+V.~Venkatakrishnan.
+\newblock On the accuracy of limiters and convergence to steady-state
+  solutions.
+\newblock {\em AIAA}, pages 93--0880, 1993.
+
+\bibitem{Kessels15}
+F.~Wageningen-Kessels, H.~Lint, K.~Vuik, and S.~Hoogendoorn.
+\newblock Genealogy of traffic flow models.
+\newblock {\em EURO Journal on Transportation and Logistics}, 4(4):445--473,
+  2015.
+
+\bibitem{Waterson95}
+N.P. Waterson and H.~Deconink.
+\newblock A unified approach to the design and application of bounded
+  higher-order convection schemes.
+\newblock {\em Von Karman Institute Preprint 1995-21}, 1995.
+
+\bibitem{Woodward84}
+P.~Woodward and P.~Colella.
+\newblock The numerical simulation of two-dimensional fluid flow with strong
+  shocks.
+\newblock {\em Journal of Computational Physics}, 54:115--173, 1984.
+
+\bibitem{Zhou95}
+G.~Zhou.
+\newblock Numerical simulations of physical discontinuities in single and
+  multi-fluid flows for arbitrary mach numbers (phd thesis).
+\newblock {\em Goteborg, Sweden: Chalmers University of Tech}, 1995.
+
+\end{thebibliography}

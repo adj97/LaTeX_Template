@@ -1,0 +1,29 @@
+\chapter{Final Remarks}
+\label{ch:final}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+	The following conclusions can be made about the topics covered:
+
+	\begin{itemize}
+		\item There are many approaches to solving compressible flow problems, different combinations of numerical schemes, Riemann solvers and slope limiters all interact and give varying solutions of common problems. Many researchers have reviewed existing methods and developed new ideas to combat the issues of previous schemes.
+		\item The choice of numerical methods in traffic flow simulations is more significant with volatile flows changing quickly, in long simulations where flow changes are very gradual the effect of numerical methods are dulled.
+		\item The general WENO scheme as presented in Appendix \ref{ap:WENOreco} cannot be extended to higher orders of $k\geq4$ without applying some bounding to preserve montonicity as in Appendix \ref{ap:monotonicitypreservingbounds} from Balsara and Shu \cite{BalsaraShu00}.
+		\item From the analysis of MUSCL slope limiters in Figures \ref{fig:randd:traffic_circles:limiters} and \ref{fig:randd:Time:traffic_circles:limiters}, the VanLeer \cite{VanLeer74} limiter is identified as most advantageous, giving a high resolution solution of the density drop, a shorter computational cost, and with little $3^{rd}$ order speedup.
+	\end{itemize}
+
+\section{Further Ideas}
+\label{sec:future}
+
+The following recommendations are made for future research:
+	
+	\begin{itemize}
+		\item More suitable parameters related to traffic flow quantities are required to be used as parameters for Riemann solvers to obtain varying results and to test which Riemann solvers are more or less appropriate for TFM. Once such parameters have been established, the HLLC solver (Appendix \ref{ap:HLLCriemann}) can be implemented and tested. 
+		\item Improve MATLAB scripts to read in road network information to split up roads automatically depending on number of roads, their individual length and the spatial step $dx$.
+		\item An interesting simulation may be over a long time period such as 24 hours with a time-dependent TDM, using the Wakefield M1 junction as a network.
+		\item Revise the junction solver and check for conservation of density, aiming to investigate the spike of density shown in Figure \ref{fig:randd:M1J40:cfl} and \ref {fig:randd:M1J40:reco}.
+		\item Implement and test some other stream models as listed in Section \ref{sec:streammodels}, to identify in which scenarios other stream models perform better. This test can be backed by some empirical data collected on real roads as has been done in the reviews \cite{ArdekaniGhandehariNepal11}, \cite{TiwariMarsani14}, \cite{LuMeng13}, \cite{Tom14}.
+		\item A test of the suitability of the LWR model \cite{Lighthill55},\cite{Richards56} against the Payne-high-order model \cite{Payne71} and some empirical traffic data would be useful to investigate if it is the underlying mathematical description of traffic which influences a simulation results more than the chosen numerical methods to proceed through this description.
+		\item Investigate the effect of other Runge-Kutta time update schemes against the classical fourth order method used here (Section \ref{sec:timeupdatescheme}). Runge-Kutta schemes can be written into an adaptive scheme by comparing a 7$^{th}$ and 8$^{th}$ order update (for example) for the error and adapting the time step accordingly, alternatively such as the third order stability preserving method used in \cite{ShiGuo16}, 
+	\end{itemize}

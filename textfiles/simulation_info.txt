@@ -1,0 +1,49 @@
+TFM Simulation Information 
+
+12/08/2019 11:25:38 
+
+
+Methodology:
+Spatial step                   1.000000e-02
+Final time                     1.000000e+00
+CFL constraint                 9.000000e-01
+Reconstruction method          1st Order single cell average
+
+
+Time breakdown:
+Code Section                   Time [s]
+----------------------------------------------
+Defining map and error check   6.170273e-04
+Initialising                   4.893088e-02
+Time loop                      2.290685e+02
+- - - - - - - - - - - - - - - - - - - - - - - 
+Junction solver                9.541947e+00
+Spatial reconstruction         5.088826e+01
+Numerical flux calculation     9.922855e+01
+Runge-Kutta updates            4.046449e+01
+- - - - - - - - - - - - - - - - - - - - - - - 
+Save results                   8.729287e+00
+----------------------------------------------
+----------------------------------------------
+Total program time             2.378474e+02
+----------------------------------------------
+
+
+Line Count:
+File                           Number of Lines     
+----------------------------------------------
+main.py                        862                 
+define_map.py                  190                 
+params.txt                     7                   
+MUSCLReconstruction.py         193                 
+WENOReconstruction.py          435                 
+----------------------------------------------
+Total                          1687                
+----------------------------------------------
+
+
+Output File Memory:
+File                           Size [MB]
+----------------------------------------------
+density.txt                    346.752
+----------------------------------------------

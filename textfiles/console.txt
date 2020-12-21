@@ -1,0 +1,8 @@
+|- - - - - Simulation Complete - - - - -|
+ Spatial step              1.000000e-02
+ Final time                1.000000e+00
+ CFL                       9.000000e-01
+ Velocity Model            Greenshields
+ Riemann solver            LaxFriedrichs
+ Reconstuction method      FirstOrder
+|- - - - - - - - - - - - - - - - - - - -|

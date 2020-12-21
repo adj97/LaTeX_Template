@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: plain.bst
+A level-1 auxiliary file: frontmatter.aux
+A level-1 auxiliary file: abbreviations.aux
+A level-1 auxiliary file: nomenclature.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: literature.aux
+A level-1 auxiliary file: approach.aux
+A level-1 auxiliary file: development.aux
+A level-1 auxiliary file: results.aux
+A level-1 auxiliary file: conclusions.aux
+A level-1 auxiliary file: app_codes.aux
+A level-1 auxiliary file: app_reco.aux
+A level-1 auxiliary file: app_supp.aux
+Database file #1: references.bib
+Warning--empty year in Newell95
+You've used 79 entries,
+            2118 wiz_defined-function locations,
+            1038 strings with 16101 characters,
+and the built_in function-call counts, 22969 in all, are:
+= -- 2278
+> -- 860
+< -- 7
++ -- 363
+- -- 266
+* -- 1432
+:= -- 3921
+add.period$ -- 238
+call.type$ -- 79
+change.case$ -- 365
+chr.to.int$ -- 0
+cite$ -- 80
+duplicate$ -- 896
+empty$ -- 1928
+format.name$ -- 266
+if$ -- 4851
+int.to.chr$ -- 0
+int.to.str$ -- 79
+missing$ -- 82
+newline$ -- 399
+num.names$ -- 158
+pop$ -- 313
+preamble$ -- 1
+purify$ -- 291
+quote$ -- 0
+skip$ -- 635
+stack$ -- 0
+substring$ -- 1588
+swap$ -- 129
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 300
+warning$ -- 1
+while$ -- 217
+width$ -- 81
+write$ -- 858
+(There was 1 warning)

@@ -1,0 +1,45 @@
+\mbox{} \vspace{25mm}
+
+\Huge \textbf{Nomenclature} \normalsize
+
+\setstretch{1.3}
+
+\vspace{15mm}
+\begin{center}
+\begin{tabular}{l l l}
+	\textbf{Symbol} & \textbf{Description} & \textbf{Units} \\
+	\hline
+	$f$ & Traffic flow & \# cars$\cdot$Hr$^{-1}$\\
+	$\rho_i^n$ & Density at $x_i,t_n$ & \# cars$\cdot$Km$^{-1}$\\
+	$u$ & Traffic velocity & Km$\cdot$Hr$^{-1}$\\
+	$x_i$ & Position displacement at cell $i$ & Km\\
+	$t_n$ & Time measure at time step $n$ & Hr\\
+	$i,j$ & General indexes & -\\
+	$n$ & Time index & -\\
+	$\Delta t$ or d$t$ & Time resolution & Hr\\
+	$\Delta x$ or d$x$ & Spatial resolution & Km\\
+	$CFL$ & Courant-Friedrichs-Lewy space-time constraint & -\\
+	\hline
+	$\frac{\partial()}{\partial()}$ & Partial derivative & -\\
+	$\frac{\mathrm{d}()}{\mathrm{d}()}$ or $()'$& Full derivative & -\\
+	$RK_j$ & Density solution at Runge-Kutta step $j$ & -\\
+	\hline
+	$\mathbf{U}$ & Conserved vector & -\\
+	$\mathbf{F}$ & Flux vector & -\\
+	\hline
+	Subscript $L,R$ & Left and right state values & -\\
+	$S^+,S_L,S_R$ & Local Riemann problem wave speed & -\\
+	$a(\rho)$ & Local Riemann problem wave speed & -\\
+	\hline
+	$\Delta_i$ & 2$^{nd}$ order reconstruction minmod limiter & -\\
+	$\phi$ & MUSCL slope limiter function & -\\
+	$k$ & Size of the $(2k-1)^{th}$ WENO scheme stencil & - \\
+	\hline
+	$a_{i,j}$ & Traffic distribution matrix elements & - 
+\end{tabular}
+\end{center}
+
+\setstretch{1}
+
+\vspace{15mm}
+\emph{Other notation are otherwise explained when used.}

@@ -1,0 +1,7 @@
+{"dx"  : 0.01,
+ "T"   : 2,
+ "CFL" : 0.9,
+ "velocity_model" : "Greenshields",
+ "riemann_solver" : "LaxFriedrichs",
+ "reconstruction" : "FirstOrder",
+ "limiter" : "MinMod"}
